@@ -226,7 +226,7 @@ body {
     position: relative;
     z-index: 2;
 }
-/* New Blue Theme Overlays */
+/* New Blue Theme Overlays & Corrected Image Paths */
 .feature-item.item-1 { background-image: url('images/2.JPG'); }
 .feature-item.item-1::after { background-color: rgba(30, 64, 175, 0.8); } /* Dark Blue */
 
@@ -435,7 +435,7 @@ body {
     .about-grid { grid-template-columns: 1fr; }
     .about-image { margin-bottom: 2rem; }
     .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { justify-content: center; flex-direction: column-reverse; }
+    .footer-bottom { justify-content: center; flex-direction: column-reverse; gap: 1.5rem; }
 }
 @media (max-width: 576px) {
     .feature-grid {
