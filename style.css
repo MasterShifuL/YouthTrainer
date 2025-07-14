@@ -121,7 +121,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/hero.jpg');
+    background-image: url('images/hero.JPG');
     background-size: cover;
     background-position: center;
     z-index: -2;
@@ -233,10 +233,10 @@ body {
 .feature-item.item-2 { background-image: url('images/3.JPG'); }
 .feature-item.item-2::after { background-color: rgba(29, 78, 216, 0.8); } /* Medium Blue */
 
-.feature-item.item-3 { background-image: url('images/10.JPG'); }
+.feature-item.item-3 { background-image: url('images/10.jpg'); }
 .feature-item.item-3::after { background-color: rgba(59, 130, 246, 0.8); } /* Light Blue */
 
-.feature-item.item-4 { background-image: url('images/9.JPG'); }
+.feature-item.item-4 { background-image: url('images/9.jpg'); }
 .feature-item.item-4::after { background-color: rgba(6, 182, 212, 0.8); } /* Cyan */
 
 .feature-icon {
