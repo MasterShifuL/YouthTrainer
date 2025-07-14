@@ -230,7 +230,7 @@ body {
 .feature-item.item-1 { background-image: url('images/2.png'); }
 .feature-item.item-1::after { background-color: rgba(30, 64, 175, 0.8); } /* Dark Blue */
 
-.feature-item.item-2 { background-image: url('images/3.png'); }
+.feature-item.item-2 { background-image: url('images/7.png'); }
 .feature-item.item-2::after { background-color: rgba(29, 78, 216, 0.8); } /* Medium Blue */
 
 .feature-item.item-3 { background-image: url('images/10.png'); }
