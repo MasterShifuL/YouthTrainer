@@ -21,6 +21,12 @@
     padding: 0;
 }
 
+body.modal-open {
+    position: fixed;
+    width: 100%;
+    /* Atribut 'top' akan diatur oleh JavaScript untuk menjaga posisi scroll */
+}
+
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-main);
@@ -125,7 +131,7 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -2;
-    animation: scrollBackground 40s linear infinite;
+    animation: scrollBackground 25s linear infinite;
 }
 .hero::after {
     content: '';
@@ -292,20 +298,24 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* --- Portfolio Section (Variable Size Grid Layout) --- */
+/* --- Portfolio Section (Asymmetrical Grid Layout for Desktop) --- */
 .portfolio-grid-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-auto-rows: 150px;
+    /* Membuat 4 kolom di desktop untuk tata letak yang kompleks */
+    grid-template-columns: repeat(4, 1fr);
+    /* Menentukan tinggi baris agar gambar proporsional */
+    grid-auto-rows: 200px;
     gap: 1rem;
     margin-top: 2rem;
 }
+
 .portfolio-item {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
 .portfolio-item img {
     display: block;
     width: 100%;
@@ -314,17 +324,22 @@ body {
     transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
     filter: brightness(85%); /* Default image lebih gelap */
 }
+
 .portfolio-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
 }
+
 .portfolio-item:hover img {
     transform: scale(1.1);
     filter: brightness(100%); /* Gambar jadi terang saat hover */
 }
+
+/* Aturan untuk membuat item membentang beberapa kolom atau baris */
 .item-large-horizontal {
     grid-column: span 2;
 }
+
 .item-large-vertical {
     grid-row: span 1;
 }
@@ -397,19 +412,203 @@ body {
     transform: translateY(-3px);
 }
 
-/* --- Responsive (Mobile) --- */
-@media (min-width: 769px) {
-    .portfolio-grid-layout {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 180px;
-    }
+/* --- Trainers Section (New Minimalist Design) --- */
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
+
+.trainer-card {
+    background: #FFFFFF;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trainer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.trainer-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 4px solid #fff;
+    box-shadow: var(--shadow-md);
+}
+
+.trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trainer-info {
+    flex-grow: 1;
+}
+
+.trainer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.trainer-specialty {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* --- Modal / Pop-up Styling --- */
+.modal-overlay {
+    position: fixed; /* PENTING: Membuatnya melayang di atas halaman */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000; /* PENTING: Memastikan posisinya paling atas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden; /* Sembunyikan secara default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible; /* Tampilkan saat kelas 'active' ditambahkan */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+/* --- Styling untuk konten di dalam modal --- */
+#modal-body {
+    max-height: 80vh; /* Batasi tinggi modal agar bisa di-scroll jika konten panjang */
+    overflow-y: auto; /* Aktifkan scroll di dalam modal jika perlu */
+}
+
+.trainer-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-right: 15px; /* Memberi ruang untuk scrollbar */
+}
+
+.trainer-modal-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid var(--border-color);
+}
+
+.trainer-modal-content h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.trainer-modal-content .trainer-profile {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    max-width: 450px;
+}
+
+.trainer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 400px; /* Lebar maksimal agar rapi */
+    text-align: left; /* Teks detail rata kiri */
+}
+
+.trainer-details .detail-item {
+    display: flex;
+    align-items: flex-start; /* Agar ikon dan teks panjang sejajar di atas */
+    gap: 0.75rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.trainer-details .detail-item i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    margin-top: 3px; /* Menyesuaikan posisi ikon */
+}
+
+.trainer-modal-content .trainer-description {
+    color: var(--text-muted);
+    text-align: justify; /* Teks deskripsi rata kiri-kanan */
+    margin-top: 1rem;
+    max-width: 450px;
+    font-size: 0.95rem;
+}
+/* --- Responsive (Mobile) --- */
+
+/* Untuk Tablet dan Mobile ukuran besar (lebar di bawah 992px) */
 @media (max-width: 992px) {
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Untuk Mobile pada umumnya (lebar di bawah 768px) */
 @media (max-width: 768px) {
+    /* --- Perbaikan Umum --- */
+    .content-section, #portfolio {
+        padding: 60px 0; /* Kurangi jarak atas-bawah pada mobile */
+    }
+    .section-title {
+        font-size: clamp(2rem, 10vw, 2.5rem); /* Perkecil sedikit judul section */
+    }
+
+    /* --- Navigasi --- */
     .nav-links { display: none; }
     .nav-toggle { display: block; }
     .main-nav.active {
@@ -432,18 +631,76 @@ body {
         width: 100%;
         text-align: center;
     }
+
+    /* --- Layout Section --- */
     .about-grid { grid-template-columns: 1fr; }
     .about-image { margin-bottom: 2rem; }
+
+    .services-grid, .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    /* Jadikan galeri proyek bergulir ke samping di mobile */
+    .portfolio-grid-layout {
+        display: flex; /* Ubah dari grid ke flexbox */
+        overflow-x: auto; /* Aktifkan scroll horizontal */
+        white-space: nowrap; /* Mencegah item turun baris */
+        gap: 1rem;
+        padding: 1rem 0 1.5rem 0; /* Beri padding agar scrollbar tidak menempel */
+
+        /* Hapus properti grid yang tidak diperlukan di mobile */
+        grid-template-columns: unset;
+        grid-auto-rows: unset;
+    }
+
+    .portfolio-item {
+        width: 280px; /* Tentukan lebar setiap kartu galeri */
+        height: 200px; /* Tentukan tinggi agar seragam */
+        flex-shrink: 0; /* Mencegah kartu menyusut */
+
+        /* Reset properti grid dari desktop */
+        grid-column: unset;
+        grid-row: unset;
+    }
+
+    /* Styling untuk scrollbar agar lebih menarik (opsional) */
+    .portfolio-grid-layout::-webkit-scrollbar {
+        height: 8px;
+    }
+    .portfolio-grid-layout::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 4px;
+    }
+    .portfolio-grid-layout::-webkit-scrollbar-track {
+        background-color: var(--border-color);
+        border-radius: 4px;
+    }
+    
+    /* --- Footer --- */
     .footer-grid { grid-template-columns: 1fr; }
     .footer-bottom { justify-content: center; flex-direction: column-reverse; gap: 1.5rem; }
 }
+
+/* Untuk Mobile layar kecil (lebar di bawah 576px) */
 @media (max-width: 576px) {
     .feature-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom, tapi lebih kecil */
+        gap: 0.5rem;
+    }
+    .feature-item {
+        padding: 1.5rem 1rem;
+        min-height: auto;
+    }
+
+    /* Kembalikan jadi 1 kolom di layar sangat kecil agar tidak sempit */
+    .services-grid, .trainers-grid {
         grid-template-columns: 1fr;
     }
-    .item-large-horizontal, .item-large-vertical {
-        grid-column: span 1;
-        grid-row: span 1;
+
+    .portfolio-item {
+        width: 240px; /* Perkecil sedikit lebar kartu galeri */
+        height: 160px;
     }
 }
 

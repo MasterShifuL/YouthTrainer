@@ -17,14 +17,15 @@
     <header class="main-header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="images/oo.png" alt="Logo YouthTrainer" style="filter: brightness(50%);">
-                <strong style="color: grey;">YouthTrainer</strong>
+                <img src="images/oo.png" alt="Logo YouthTrainer" style="filter: brightness(35%);">
+                <strong style="color: #494949;">YouthTrainer</strong>
             </a>
             <nav class="main-nav">
                 <ul class="nav-links">
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#services">Layanan</a></li>
-                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#trainers">Our Teams</a></li>
                     <li><a href="#contact" class="btn btn-primary nav-btn" style="color: aliceblue;">Kontak</a></li>
                 </ul>
             </nav>
@@ -38,7 +39,8 @@
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">We Build Experiences.</h1>
-                <p class="hero-subtitle">Komunitas event organizer yang mengubah ide-ide brilian menjadi acara yang tak terlupakan. Kreatif, presisi, dan penuh warna.</p>
+                <p class="hero-subtitle">Komunitas event organizer yang mengubah ide-ide brilian menjadi acara yang tak
+                    terlupakan. Kreatif, presisi, dan penuh warna.</p>
                 <a href="#services" class="btn btn-primary btn-hero">Jelajahi Layanan</a>
             </div>
         </section>
@@ -51,11 +53,30 @@
                     </div>
                     <div class="about-content">
                         <h2 class="section-title">Driven by Passion.</h2>
-                        <p>Kami lebih dari sekadar penyelenggara acara. Kami adalah arsitek momen, perajut cerita, dan mitra kreatif Anda. Dengan tim yang solid dan semangat kolaborasi, kami memastikan setiap detail dieksekusi dengan sempurna untuk menciptakan pengalaman yang otentik dan berkesan.</p>
+                        <p>Kami lebih dari sekadar penyelenggara acara. Kami adalah arsitek momen, perajut cerita, dan
+                            mitra kreatif Anda. Dengan tim yang solid dan semangat kolaborasi, kami memastikan setiap
+                            detail dieksekusi dengan sempurna untuk menciptakan pengalaman yang otentik dan berkesan.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal-content" id="modal-content">
+                <button class="modal-close" id="modal-close">&times;</button>
+                <div id="modal-body">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal-content" id="modal-content">
+                <button class="modal-close" id="modal-close">&times;</button>
+                <div id="modal-body">
+                </div>
+            </div>
+        </div>
 
         <section class="feature-section">
             <div class="feature-grid">
@@ -65,7 +86,8 @@
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <h3>Creativity & Planning</h3>
-                        <p>We believe that events should be an experience that combines creativity, collaboration and detail-oriented planning.</p>
+                        <p>We believe that events should be an experience that combines creativity, collaboration and
+                            detail-oriented planning.</p>
                     </div>
                 </div>
 
@@ -75,7 +97,8 @@
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <h3>Passionate Team</h3>
-                        <p>Our professional team is passionate about bringing people together and creating an amazing all-in experience for everyone involved.</p>
+                        <p>Our professional team is passionate about bringing people together and creating an amazing
+                            all-in experience for everyone involved.</p>
                     </div>
                 </div>
 
@@ -85,7 +108,8 @@
                             <i class="fas fa-puzzle-piece"></i>
                         </div>
                         <h3>Range of Services</h3>
-                        <p>We offer a range of services from event management, visual & construction production to MICE event marketing for all institutions.</p>
+                        <p>We offer a range of services from event management, visual & construction production to MICE
+                            event marketing for all institutions.</p>
                     </div>
                 </div>
 
@@ -95,7 +119,8 @@
                             <i class="far fa-smile-beam"></i>
                         </div>
                         <h3>Memorable Event</h3>
-                        <p>We work with our clients to create a unique and memorable event that will leave a lasting impression. Your success is our mission.</p>
+                        <p>We work with our clients to create a unique and memorable event that will leave a lasting
+                            impression. Your success is our mission.</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +143,8 @@
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-wifi"></i></div>
                         <h3 class="service-title">Hybrid & Virtual</h3>
-                        <p>Mengintegrasikan teknologi untuk acara online yang interaktif dan menjangkau audiens luas.</p>
+                        <p>Mengintegrasikan teknologi untuk acara online yang interaktif dan menjangkau audiens luas.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -152,6 +178,48 @@
                 </div>
             </div>
         </section>
+
+        <section id="trainers" class="content-section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Our Teams</h2>
+                <div class="trainers-grid">
+
+                    <div class="trainer-card" data-trainer="Alif">
+                        <div class="trainer-photo">
+                            <img src="images/alif.jpg"
+                                alt="Foto Trainer Iqbal">
+                        </div>
+                        <div class="trainer-info">
+                            <h3 class="trainer-title">Ahmad Alif Hidayat, S.H., C.PS</h3>
+                            <p class="trainer-specialty">Public Speaking & Leadership Specialist</p>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card" data-trainer="Iqbal">
+                        <div class="trainer-photo">
+                            <img src="images/Iqbal.jpg"
+                                alt="Foto Trainer Iqbal">
+                        </div>
+                        <div class="trainer-info">
+                            <h3 class="trainer-title">Muhammad Iqbal Lazuardy, S.Sos</h3>
+                            <p class="trainer-specialty">Public Speaking & Leadership Specialist</p>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card" data-trainer="Amirul">
+                        <div class="trainer-photo">
+                            <img src="images/amirul.png"
+                                alt="Foto Trainer Amirul">
+                        </div>
+                        <div class="trainer-info">
+                            <h3 class="trainer-title">Achmad Amirul Mu'minin</h3>
+                            <p class="trainer-specialty">Social Media Specialist</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer" id="contact">
@@ -161,7 +229,7 @@
                     <h4><i class="fas fa-map-marker-alt"></i> YouthTrainer</h4>
                     <p>Jalan Raya Kenongo<br>TULANGAN<br>Sidoarjo, Jawa Timur, Indonesia</p>
                 </div>
-            
+
                 <div class="footer-column">
                     <h4><i class="fas fa-phone-alt"></i> Hubungi Kami</h4>
                     <p>+62 857-5587-3201 (Iqbal)<br>
@@ -175,7 +243,8 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/youthtrainer.sda/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/youthtrainer.sda/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
@@ -186,4 +255,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
